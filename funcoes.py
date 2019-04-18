@@ -44,36 +44,10 @@ def escolheNumeroDecolagens():
         numeroDecolagens = str(input("\n\nQuantas decolagens você deseja que o programa gerencie:  "))
     return int(numeroDecolagens)
 
-def gerarDecolagens(numeroDecolagens):
-    listaDecolagens = []
+def gerarDecolagens(listaDecolagens, numeroDecolagens):
+    # listaDecolagens = []
     nPista = 1
     for i in range(0, numeroDecolagens):
-        if(nPista > 3):
-            nPista = 1
-
-        decolagem = Decolagem()
-        decolagem.numeroVoo = ''.join(random.choice(string.ascii_uppercase) for _ in range(2)) + ''.join(random.choice(string.digits) for _ in range(4))
-
-        while any(d.numeroVoo == decolagem.numeroVoo for d in listaDecolagens):
-            decolagem.numeroVoo = ''.join(random.choice(string.ascii_uppercase) for _ in range(2)) + ''.join(random.choice(string.digits) for _ in range(4))
-
-        decolagem.dia = fake.date_between(start_date='today', end_date='+180d')        
-        decolagem.hora = fake.time(pattern="%H:%M", end_datetime=None)
-        decolagem.pista = nPista
-        
-        while any(d.dia == decolagem.dia and d.hora == decolagem.hora and d.pista == decolagem.pista for d in listaDecolagens):
-            decolagem.dia = fake.date_between(start_date='today', end_date='+180d')        
-            decolagem.hora = fake.time(pattern="%H:%M", end_datetime=None)
-        
-        # print(decolagem.numeroVoo, decolagem.dia, decolagem.hora, decolagem.pista)
-        listaDecolagens.append(decolagem)
-        nPista += 1
-
-    return listaDecolagens
-
-def adicionaDecolagens(listaDecolagens, numeroNovasDecolagens):
-    nPista = 1
-    for i in range(0, numeroNovasDecolagens):
         if(nPista > 3):
             nPista = 1
 
@@ -142,16 +116,20 @@ def gerenciaVoosAdicionais(listaDecolagens):
             cdVoo = input("Digite o código do vôo que foi cancelado: ")
             posicao = buscaSequencial(listaDecolagens, cdVoo)
             if(posicao == -1):
-                print("Esse vôo não foi encontrado")
+                print("\nEsse vôo não foi encontrado. Tente novamente!")
+                input("\n\nAperte QUALQUER tecla para continuar")
+                imprimeListaVoos(len(listaDecolagens), listaDecolagens) 
             else:
                 del(listaDecolagens[posicao])
+                print("\nVôo deletado com sucesso!")
+                input("\n\nAperte QUALQUER tecla para continuar")
                 imprimeListaVoos(len(listaDecolagens), listaDecolagens)  
         else:
             novasDecolagens = input("Quantos vôos foram adicionados: ")
             while novasDecolagens.isnumeric() == False or (int(novasDecolagens) < 1):
                 print("Número Inválido! Digite novamente")
                 novasDecolagens = input("Quantos vôos foram adicionados: ")
-            adicionaDecolagens(listaDecolagens, int(novasDecolagens))
+            gerarDecolagens(listaDecolagens, int(novasDecolagens))
             imprimeListaVoos(len(listaDecolagens), listaDecolagens)
 
 def buscaSequencial(listaDecolagens, valorBuscado):

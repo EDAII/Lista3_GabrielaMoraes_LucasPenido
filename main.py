@@ -12,7 +12,8 @@ def main():
         opcao = recebeOpcaoMenuValida()
         if opcao == 1: 
             numeroDecolagens = escolheNumeroDecolagens()
-            listaDecolagens = gerarDecolagens(numeroDecolagens)
+            listaDecolagens = []
+            listaDecolagens = gerarDecolagens(listaDecolagens, numeroDecolagens)
             imprimeListaVoos(numeroDecolagens, listaDecolagens)
             while True:
                 exibirMenuOrdenacao()
