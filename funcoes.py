@@ -308,7 +308,257 @@ def shellSortPistaDiaHorario(listaDecolagens, tamanhoVetor):
             comparacoes = comparacoes + 1
         gap = int(gap / 2)
         
-
     print("Shell sort realizado! ")
     print("Quantidade de comparações: ", comparacoes)
     print("Quantidade de swaps: ", contaSwap)
+
+def mergeSortNumeroVoo(listaDecolagens): 
+    contaSwap = 0
+    comparacoes = 0
+
+    if len(listaDecolagens) >1: 
+        meio = len(listaDecolagens)//2 
+        esquerda = listaDecolagens[:meio]  
+        direita = listaDecolagens[meio:]
+  
+        mergeSortNumeroVoo(esquerda) 
+        mergeSortNumeroVoo(direita)  
+  
+        i = j = k = 0
+          
+        while i < len(esquerda) and j < len(direita): 
+            if esquerda[i].numeroVoo < direita[j].numeroVoo: 
+                listaDecolagens[k] = esquerda[i] 
+                i = i + 1
+            else: 
+                listaDecolagens[k] = direita[j] 
+                j = j + 1
+            k = k + 1
+          
+        while i < len(esquerda): 
+            listaDecolagens[k] = esquerda[i] 
+            i = i + 1
+            k = k + 1
+          
+        while j < len(direita): 
+            listaDecolagens[k] = direita[j] 
+            j = j + 1
+            k = k + 1
+    return comparacoes, contaSwap
+
+def mergeSortDia(listaDecolagens): 
+    contaSwap = 0
+    comparacoes = 0
+
+    if len(listaDecolagens) >1: 
+        meio = len(listaDecolagens)//2 
+        esquerda = listaDecolagens[:meio]  
+        direita = listaDecolagens[meio:] 
+  
+        mergeSortDia(esquerda)
+        mergeSortDia(direita) 
+  
+        i = j = k = 0
+          
+        while i < len(esquerda) and j < len(direita): 
+            if esquerda[i].dia < direita[j].dia: 
+                listaDecolagens[k] = esquerda[i] 
+                i = i + 1
+            else: 
+                listaDecolagens[k] = direita[j] 
+                j = j + 1
+            k = k + 1
+          
+        while i < len(esquerda): 
+            listaDecolagens[k] = esquerda[i] 
+            i = i + 1
+            k = k + 1
+          
+        while j < len(direita): 
+            listaDecolagens[k] = direita[j] 
+            j = j + 1
+            k = k + 1
+    return comparacoes, contaSwap
+
+def mergeSortHorario(listaDecolagens): 
+    contaSwap = 0
+    comparacoes = 0
+
+    if len(listaDecolagens) >1: 
+        meio = len(listaDecolagens)//2  
+        esquerda = listaDecolagens[:meio]   
+        direita = listaDecolagens[meio:]  
+  
+        mergeSortHorario(esquerda) 
+        mergeSortHorario(direita)
+  
+        i = j = k = 0
+          
+        while i < len(esquerda) and j < len(direita): 
+            if esquerda[i].hora < direita[j].hora: 
+                listaDecolagens[k] = esquerda[i] 
+                i = i + 1
+            else: 
+                listaDecolagens[k] = direita[j] 
+                j = j + 1
+            k = k + 1
+          
+        while i < len(esquerda): 
+            listaDecolagens[k] = esquerda[i] 
+            i = i + 1
+            k = k + 1
+          
+        while j < len(direita): 
+            listaDecolagens[k] = direita[j] 
+            j = j + 1
+            k = k + 1
+    return comparacoes, contaSwap
+
+def mergeSortPista(listaDecolagens): 
+    contaSwap = 0
+    comparacoes = 0
+
+    if len(listaDecolagens) >1: 
+        meio = len(listaDecolagens)//2  
+        esquerda = listaDecolagens[:meio]  
+        direita = listaDecolagens[meio:]  
+  
+        mergeSortPista(esquerda) 
+        mergeSortPista(direita)
+  
+        i = j = k = 0
+          
+        while i < len(esquerda) and j < len(direita): 
+            if esquerda[i].pista < direita[j].pista: 
+                listaDecolagens[k] = esquerda[i] 
+                i = i + 1
+            else: 
+                listaDecolagens[k] = direita[j] 
+                j = j + 1
+            k = k + 1
+          
+        while i < len(esquerda): 
+            listaDecolagens[k] = esquerda[i] 
+            i = i + 1
+            k = k + 1
+          
+        while j < len(direita): 
+            listaDecolagens[k] = direita[j] 
+            j = j + 1
+            k = k + 1
+    return comparacoes, contaSwap
+
+
+def mergeSortDiaHorario(listaDecolagens): 
+    contaSwap = 0
+    comparacoes = 0
+
+    if len(listaDecolagens) >1: 
+        meio = len(listaDecolagens)//2 
+        esquerda = listaDecolagens[:meio]   
+        direita = listaDecolagens[meio:] 
+  
+        mergeSortDiaHorario(esquerda)  
+        mergeSortDiaHorario(direita)
+  
+        i = j = k = 0
+          
+        while i < len(esquerda) and j < len(direita): 
+            if  esquerda[i].dia < direita[j].dia or \
+                (esquerda[i].dia == direita[j].dia and esquerda[i].hora < direita[j].hora): 
+                
+                listaDecolagens[k] = esquerda[i] 
+                i = i + 1
+            else: 
+                listaDecolagens[k] = direita[j] 
+                j = j + 1
+            k = k + 1
+          
+        while i < len(esquerda): 
+            listaDecolagens[k] = esquerda[i] 
+            i = i + 1
+            k = k + 1
+          
+        while j < len(direita): 
+            listaDecolagens[k] = direita[j] 
+            j = j + 1
+            k = k + 1
+    return comparacoes, contaSwap
+
+def mergeSortDiaHorarioPista(listaDecolagens): 
+    contaSwap = 0
+    comparacoes = 0
+
+    if len(listaDecolagens) >1: 
+        meio = len(listaDecolagens)//2  
+        esquerda = listaDecolagens[:meio]   
+        direita = listaDecolagens[meio:]  
+  
+        mergeSortDiaHorarioPista(esquerda) 
+        mergeSortDiaHorarioPista(direita) 
+  
+        i = j = k = 0
+          
+        while i < len(esquerda) and j < len(direita): 
+            if  (esquerda[i].dia < direita[j].dia) or \
+                (esquerda[i].dia == direita[j].dia and esquerda[i].hora < direita[j].hora) or \
+                (esquerda[i].dia == direita[j].dia and esquerda[i].hora == direita[j].hora and \
+                esquerda[i].pista < direita[j].pista): 
+                
+                listaDecolagens[k] = esquerda[i] 
+                i = i + 1
+            else: 
+                listaDecolagens[k] = direita[j] 
+                j = j + 1
+            k = k + 1
+          
+        while i < len(esquerda): 
+            listaDecolagens[k] = esquerda[i] 
+            i = i + 1
+            k = k + 1
+          
+        while j < len(direita): 
+            listaDecolagens[k] = direita[j] 
+            j = j + 1
+            k = k + 1
+    return comparacoes, contaSwap
+
+
+def mergeSortPistaDiaHorario(listaDecolagens): 
+    contaSwap = 0
+    comparacoes = 0
+
+    if len(listaDecolagens) >1: 
+        meio = len(listaDecolagens)//2 
+        esquerda = listaDecolagens[:meio] 
+        direita = listaDecolagens[meio:]  
+  
+        mergeSortPistaDiaHorario(esquerda) 
+        mergeSortPistaDiaHorario(direita)
+  
+        i = j = k = 0
+          
+
+        while i < len(esquerda) and j < len(direita): 
+            if  (esquerda[i].pista < direita[j].pista) or \
+                (esquerda[i].pista == direita[j].pista and esquerda[i].dia < direita[j].dia) or \
+                (esquerda[i].pista == direita[j].pista and esquerda[i].dia == direita[j].dia and \
+                esquerda[i].hora < direita[j].hora): 
+                
+                listaDecolagens[k] = esquerda[i] 
+                i = i + 1
+            else: 
+                listaDecolagens[k] = direita[j] 
+                j = j + 1
+            k = k + 1
+          
+        while i < len(esquerda): 
+            listaDecolagens[k] = esquerda[i] 
+            i = i + 1
+            k = k + 1
+          
+        while j < len(direita): 
+            listaDecolagens[k] = direita[j] 
+            j = j + 1
+            k = k + 1
+    return comparacoes, contaSwap

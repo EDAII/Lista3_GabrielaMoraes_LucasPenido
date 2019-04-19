@@ -24,7 +24,16 @@ def main():
                     inicio = timeit.default_timer()
                     shellSortNumeroVoo(listaDecolagens, len(listaDecolagens))
                     fim = timeit.default_timer()
-                    print("Tempo de execução: {:.6f}s".format (fim-inicio))
+                    print("Tempo de execução do Shell Sort: {:.6f}s".format (fim-inicio))
+                    input("\n\nAperte QUALQUER tecla para continuar\n")
+                    
+                    inicio = timeit.default_timer()
+                    dadosMerge = mergeSortNumeroVoo(listaDecolagens)
+                    fim = timeit.default_timer()
+                    print("Merge sort realizado! ")
+                    print("Quantidade de comparações: ", dadosMerge[0])
+                    print("Quantidade de swaps: ", dadosMerge[1])
+                    print("Tempo de execução do Merge Sort: {:.6f}s".format (fim-inicio))
                     input("\n\nAperte QUALQUER tecla para continuar\n")
                     
                     
@@ -38,6 +47,15 @@ def main():
                     print("Tempo de execução: {:.6f}s".format (fim-inicio))
                     input("\n\nAperte QUALQUER tecla para continuar\n")
                     
+                    inicio = timeit.default_timer()
+                    dadosMerge = mergeSortDia(listaDecolagens)
+                    fim = timeit.default_timer()
+                    print("Merge sort realizado! ")
+                    print("Quantidade de comparações: ", dadosMerge[0])
+                    print("Quantidade de swaps: ", dadosMerge[1])
+                    print("Tempo de execução do Merge Sort: {:.6f}s".format (fim-inicio))
+                    input("\n\nAperte QUALQUER tecla para continuar\n")
+                    
                     imprimeListaVoos(len(listaDecolagens), listaDecolagens)
                     gerenciaVoosAdicionais(listaDecolagens)
                 elif criterioOrdenacao == 3:
@@ -48,6 +66,16 @@ def main():
                     print("Tempo de execução: {:.6f}s".format (fim-inicio))
                     input("\n\nAperte QUALQUER tecla para continuar\n")
                     
+                    inicio = timeit.default_timer()
+                    dadosMerge = mergeSortHorario(listaDecolagens)
+                    fim = timeit.default_timer()
+                    print("Merge sort realizado! ")
+                    print("Quantidade de comparações: ", dadosMerge[0])
+                    print("Quantidade de swaps: ", dadosMerge[1])
+                    print("Tempo de execução do Merge Sort: {:.6f}s".format (fim-inicio))
+                    input("\n\nAperte QUALQUER tecla para continuar\n")
+
+
                     imprimeListaVoos(len(listaDecolagens), listaDecolagens)
                     gerenciaVoosAdicionais(listaDecolagens)
 
@@ -59,6 +87,14 @@ def main():
                     print("Tempo de execução: {:.6f}s".format (fim-inicio))
                     input("\n\nAperte QUALQUER tecla para continuar\n")
                     
+                    inicio = timeit.default_timer()
+                    dadosMerge = mergeSortPista(listaDecolagens)
+                    fim = timeit.default_timer()
+                    print("Merge sort realizado! ")
+                    print("Quantidade de comparações: ", dadosMerge[0])
+                    print("Quantidade de swaps: ", dadosMerge[1])
+                    print("Tempo de execução do Merge Sort: {:.6f}s".format (fim-inicio))
+                    input("\n\nAperte QUALQUER tecla para continuar\n")
                     
                     
                     imprimeListaVoos(len(listaDecolagens), listaDecolagens)
@@ -72,6 +108,15 @@ def main():
                     print("Tempo de execução: {:.6f}s".format (fim-inicio))
                     input("\n\nAperte QUALQUER tecla para continuar\n")
                     
+                    inicio = timeit.default_timer()
+                    dadosMerge = mergeSortDiaHorario(listaDecolagens)
+                    fim = timeit.default_timer()
+                    print("Merge sort realizado! ")
+                    print("Quantidade de comparações: ", dadosMerge[0])
+                    print("Quantidade de swaps: ", dadosMerge[1])
+                    print("Tempo de execução do Merge Sort: {:.6f}s".format (fim-inicio))
+                    input("\n\nAperte QUALQUER tecla para continuar\n")
+
                     imprimeListaVoos(len(listaDecolagens), listaDecolagens)
                     gerenciaVoosAdicionais(listaDecolagens)
 
@@ -81,6 +126,15 @@ def main():
                     shellSortDiaHorarioPista(listaDecolagens, len(listaDecolagens))
                     fim = timeit.default_timer()
                     print("Tempo de execução: {:.6f}s".format (fim-inicio))
+                    input("\n\nAperte QUALQUER tecla para continuar\n")
+
+                    inicio = timeit.default_timer()
+                    dadosMerge = mergeSortDiaHorarioPista(listaDecolagens)
+                    fim = timeit.default_timer()
+                    print("Merge sort realizado! ")
+                    print("Quantidade de comparações: ", dadosMerge[0])
+                    print("Quantidade de swaps: ", dadosMerge[1])
+                    print("Tempo de execução do Merge Sort: {:.6f}s".format (fim-inicio))
                     input("\n\nAperte QUALQUER tecla para continuar\n")
                     
                     
@@ -93,6 +147,15 @@ def main():
                     shellSortPistaDiaHorario(listaDecolagens, len(listaDecolagens))
                     fim = timeit.default_timer()
                     print("Tempo de execução: {:.6f}s".format (fim-inicio))
+                    input("\n\nAperte QUALQUER tecla para continuar\n")
+
+                    inicio = timeit.default_timer()
+                    dadosMerge = mergeSortPistaDiaHorario(listaDecolagens)
+                    fim = timeit.default_timer()
+                    print("Merge sort realizado! ")
+                    print("Quantidade de comparações: ", dadosMerge[0])
+                    print("Quantidade de swaps: ", dadosMerge[1])
+                    print("Tempo de execução do Merge Sort: {:.6f}s".format (fim-inicio))
                     input("\n\nAperte QUALQUER tecla para continuar\n")
                     
                     
