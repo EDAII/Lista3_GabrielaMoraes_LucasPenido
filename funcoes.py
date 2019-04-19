@@ -87,12 +87,13 @@ def exibirMenuOrdenacao():
     print("3. Horário")
     print("4. Pista")
     print("5. Dia e horário")
-    print("6. Pista por data e horário")
+    print("6. Dia, horário e pista")
+    print("7. Pista por dia e horário")
     print("0. Sair")
 
 def recebeOpcaoMenuOrdenacaoValida():
     criterio = str(input("\n\nDigite o número correspondente ao critério que você deseja: "))
-    while criterio.isnumeric() == False or (int(criterio) < 0) or (int(criterio) > 6):
+    while criterio.isnumeric() == False or (int(criterio) < 0) or (int(criterio) > 7):
         print("Opção Inválida! Digite novamente")
         criterio = str(input("Digite o número correspondente ao critério que você deseja: "))
     return int(criterio)
@@ -141,6 +142,7 @@ def buscaSequencial(listaDecolagens, valorBuscado):
 def shellSortNumeroVoo(listaDecolagens, tamanhoVetor):
     gap = int(tamanhoVetor / 2)
     contaSwap = 0
+    comparacoes = 0
 
     while gap > 0: 
         for i in range(int(gap), int(tamanhoVetor)): 
@@ -153,13 +155,18 @@ def shellSortNumeroVoo(listaDecolagens, tamanhoVetor):
                 j -= int(gap)
 
             listaDecolagens[j] = aux
+            comparacoes = comparacoes + 1
         gap = int(gap / 2)
+        
     
-    return contaSwap
+    print("Shell sort realizado! ")
+    print("Quantidade de comparações: ", comparacoes)
+    print("Quantidade de swaps: ", contaSwap)
 
 def shellSortDia(listaDecolagens, tamanhoVetor):
     gap = int(tamanhoVetor / 2)
     contaSwap = 0
+    comparacoes = 0
 
     while gap > 0: 
         for i in range(int(gap), int(tamanhoVetor)): 
@@ -172,13 +179,18 @@ def shellSortDia(listaDecolagens, tamanhoVetor):
                 j -= int(gap)
 
             listaDecolagens[j] = aux
+            comparacoes = comparacoes + 1
         gap = int(gap / 2)
+        
     
-    return contaSwap
+    print("Shell sort realizado! ")
+    print("Quantidade de comparações: ", comparacoes)
+    print("Quantidade de swaps: ", contaSwap)
 
 def shellSortHorario(listaDecolagens, tamanhoVetor):
     gap = int(tamanhoVetor / 2)
     contaSwap = 0
+    comparacoes = 0
 
     while gap > 0: 
         for i in range(int(gap), int(tamanhoVetor)): 
@@ -191,13 +203,17 @@ def shellSortHorario(listaDecolagens, tamanhoVetor):
                 j -= int(gap)
 
             listaDecolagens[j] = aux
+            comparacoes = comparacoes + 1
         gap = int(gap / 2)
-    
-    return contaSwap
+        
+    print("Shell sort realizado! ")
+    print("Quantidade de comparações: ", comparacoes)
+    print("Quantidade de swaps: ", contaSwap)
 
 def shellSortPista(listaDecolagens, tamanhoVetor):
     gap = int(tamanhoVetor / 2)
     contaSwap = 0
+    comparacoes = 0
 
     while gap > 0: 
         for i in range(int(gap), int(tamanhoVetor)): 
@@ -210,13 +226,18 @@ def shellSortPista(listaDecolagens, tamanhoVetor):
                 j -= int(gap)
 
             listaDecolagens[j] = aux
+            comparacoes = comparacoes + 1
         gap = int(gap / 2)
+        
     
-    return contaSwap
+    print("Shell sort realizado! ")
+    print("Quantidade de comparações: ", comparacoes)
+    print("Quantidade de swaps: ", contaSwap)
 
 def shellSortDiaHorario(listaDecolagens, tamanhoVetor):
     gap = int(tamanhoVetor / 2)
     contaSwap = 0
+    comparacoes = 0
 
     while gap > 0: 
         for i in range(int(gap), int(tamanhoVetor)): 
@@ -229,14 +250,46 @@ def shellSortDiaHorario(listaDecolagens, tamanhoVetor):
                 j -= int(gap)
 
             listaDecolagens[j] = aux
+            comparacoes = comparacoes + 1
         gap = int(gap / 2)
+        
     
-    return contaSwap
+    print("Shell sort realizado! ")
+    print("Quantidade de comparações: ", comparacoes)
+    print("Quantidade de swaps: ", contaSwap)
 
 
 def shellSortDiaHorarioPista(listaDecolagens, tamanhoVetor):
     gap = int(tamanhoVetor / 2)
     contaSwap = 0
+    comparacoes = 0
+
+    while gap > 0: 
+        for i in range(int(gap), int(tamanhoVetor)): 
+            aux = listaDecolagens[i]
+            j = i
+
+            while int(j) >= int(gap) and( (listaDecolagens[j - int(gap)].dia) >  aux.dia or \
+                listaDecolagens[j - int(gap)].dia ==  aux.dia and listaDecolagens[j - int(gap)].hora > aux.hora or \
+                listaDecolagens[j - int(gap)].dia ==  aux.dia and listaDecolagens[j - int(gap)].hora == aux.hora and \
+                listaDecolagens[j - int(gap)].pista > aux.pista):
+                contaSwap = contaSwap + 1
+                listaDecolagens[j] = listaDecolagens [j- int(gap)] #realiza swap
+                j -= int(gap)
+
+            listaDecolagens[j] = aux
+            comparacoes = comparacoes + 1
+        gap = int(gap / 2)
+        
+    
+    print("Shell sort realizado! ")
+    print("Quantidade de comparações: ", comparacoes)
+    print("Quantidade de swaps: ", contaSwap)
+
+def shellSortPistaDiaHorario(listaDecolagens, tamanhoVetor):
+    gap = int(tamanhoVetor / 2)
+    contaSwap = 0
+    comparacoes = 0
 
     while gap > 0: 
         for i in range(int(gap), int(tamanhoVetor)): 
@@ -252,9 +305,10 @@ def shellSortDiaHorarioPista(listaDecolagens, tamanhoVetor):
                 j -= int(gap)
 
             listaDecolagens[j] = aux
+            comparacoes = comparacoes + 1
         gap = int(gap / 2)
-    
-    return contaSwap
+        
 
-
-
+    print("Shell sort realizado! ")
+    print("Quantidade de comparações: ", comparacoes)
+    print("Quantidade de swaps: ", contaSwap)
