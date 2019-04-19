@@ -1,5 +1,6 @@
 import os
 # import time
+import timeit
 from funcoes import *
 
 def main():
@@ -19,22 +20,83 @@ def main():
                 exibirMenuOrdenacao()
                 criterioOrdenacao = recebeOpcaoMenuOrdenacaoValida()
                 if criterioOrdenacao == 1:
-                    print("Ordenar por numero do voo")
+                    print("================= Ordenação por Número do Vôo =================================")
+                    inicio = timeit.default_timer()
+                    qtdSwaps = shellSortNumeroVoo(listaDecolagens, len(listaDecolagens))
+                    fim = timeit.default_timer()
+                    print("Shell sort realizado! ")
+                    print("Quantidade de swaps: ", qtdSwaps)
+                    print("Tempo de execução: {:.6f}s".format (fim-inicio))
+                    input("\n\nAperte QUALQUER tecla para continuar\n")
+                    
+                    
+                    imprimeListaVoos(len(listaDecolagens), listaDecolagens)
                     gerenciaVoosAdicionais(listaDecolagens)
                 elif criterioOrdenacao == 2:
-                    print("Ordenar por dia")
+                    print("================= Ordenação por data de partida =================================")
+                    inicio = timeit.default_timer()
+                    qtdSwaps = shellSortDia(listaDecolagens, len(listaDecolagens))
+                    fim = timeit.default_timer()
+                    print("Shell sort realizado! ")
+                    print("Quantidade de swaps: ", qtdSwaps)
+                    print("Tempo de execução: {:.6f}s".format (fim-inicio))
+                    input("\n\nAperte QUALQUER tecla para continuar\n")
+                    
+                    imprimeListaVoos(len(listaDecolagens), listaDecolagens)
                     gerenciaVoosAdicionais(listaDecolagens)
                 elif criterioOrdenacao == 3:
-                    print("Ordenar por horario")
+                    print("================= Ordenação por horário de partida =================================")
+                    inicio = timeit.default_timer()
+                    qtdSwaps = shellSortHorario(listaDecolagens, len(listaDecolagens))
+                    fim = timeit.default_timer()
+                    print("Shell sort realizado! ")
+                    print("Quantidade de swaps: ", qtdSwaps)
+                    print("Tempo de execução: {:.6f}s".format (fim-inicio))
+                    input("\n\nAperte QUALQUER tecla para continuar\n")
+                    
+                    imprimeListaVoos(len(listaDecolagens), listaDecolagens)
                     gerenciaVoosAdicionais(listaDecolagens)
+
                 elif criterioOrdenacao == 4:
-                    print("Ordenar por pista")
+                    print("================= Ordenação por pista =================================")
+                    inicio = timeit.default_timer()
+                    qtdSwaps = shellSortPista(listaDecolagens, len(listaDecolagens))
+                    fim = timeit.default_timer()
+                    print("Shell sort realizado! ")
+                    print("Quantidade de swaps: ", qtdSwaps)
+                    print("Tempo de execução: {:.6f}s".format (fim-inicio))
+                    input("\n\nAperte QUALQUER tecla para continuar\n")
+                    
+                    
+                    
+                    imprimeListaVoos(len(listaDecolagens), listaDecolagens)
                     gerenciaVoosAdicionais(listaDecolagens)
+
                 elif criterioOrdenacao == 5:
-                    print("Ordenar por dia e horario")
+                    print("================= Ordenação por dia e horário =================================")
+                    inicio = timeit.default_timer()
+                    qtdSwaps = shellSortDiaHorario(listaDecolagens, len(listaDecolagens))
+                    fim = timeit.default_timer()
+                    print("Shell sort realizado! ")
+                    print("Quantidade de swaps: ", qtdSwaps)
+                    print("Tempo de execução: {:.6f}s".format (fim-inicio))
+                    input("\n\nAperte QUALQUER tecla para continuar\n")
+                    
+                    imprimeListaVoos(len(listaDecolagens), listaDecolagens)
                     gerenciaVoosAdicionais(listaDecolagens)
+
                 elif criterioOrdenacao == 6:
-                    print("Ordenar por dia, horario e pista")
+                    print("================= Ordenação por dia, horário e pista =================================")
+                    inicio = timeit.default_timer()
+                    qtdSwaps = shellSortDiaHorarioPista(listaDecolagens, len(listaDecolagens))
+                    fim = timeit.default_timer()
+                    print("Shell sort realizado! ")
+                    print("Quantidade de swaps: ", qtdSwaps)
+                    print("Tempo de execução: {:.6f}s".format (fim-inicio))
+                    input("\n\nAperte QUALQUER tecla para continuar\n")
+                    
+                    
+                    imprimeListaVoos(len(listaDecolagens), listaDecolagens)
                     gerenciaVoosAdicionais(listaDecolagens)
                 else:
                     break

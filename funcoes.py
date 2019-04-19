@@ -87,7 +87,7 @@ def exibirMenuOrdenacao():
     print("3. Horário")
     print("4. Pista")
     print("5. Dia e horário")
-    print("6. Dia, horário e pista")
+    print("6. Pista por data e horário")
     print("0. Sair")
 
 def recebeOpcaoMenuOrdenacaoValida():
@@ -137,4 +137,124 @@ def buscaSequencial(listaDecolagens, valorBuscado):
         if(listaDecolagens[i].numeroVoo == valorBuscado):
             return int(i)
     return -1
+
+def shellSortNumeroVoo(listaDecolagens, tamanhoVetor):
+    gap = int(tamanhoVetor / 2)
+    contaSwap = 0
+
+    while gap > 0: 
+        for i in range(int(gap), int(tamanhoVetor)): 
+            aux = listaDecolagens[i]
+            j = i
+
+            while int(j) >= int(gap) and str(listaDecolagens[j - int(gap)].numeroVoo) > str(aux.numeroVoo):
+                contaSwap = contaSwap + 1
+                listaDecolagens[j] = listaDecolagens [j- int(gap)] #realiza swap
+                j -= int(gap)
+
+            listaDecolagens[j] = aux
+        gap = int(gap / 2)
     
+    return contaSwap
+
+def shellSortDia(listaDecolagens, tamanhoVetor):
+    gap = int(tamanhoVetor / 2)
+    contaSwap = 0
+
+    while gap > 0: 
+        for i in range(int(gap), int(tamanhoVetor)): 
+            aux = listaDecolagens[i]
+            j = i
+
+            while int(j) >= int(gap) and listaDecolagens[j - int(gap)].dia > aux.dia:
+                contaSwap = contaSwap + 1
+                listaDecolagens[j] = listaDecolagens [j- int(gap)] #realiza swap
+                j -= int(gap)
+
+            listaDecolagens[j] = aux
+        gap = int(gap / 2)
+    
+    return contaSwap
+
+def shellSortHorario(listaDecolagens, tamanhoVetor):
+    gap = int(tamanhoVetor / 2)
+    contaSwap = 0
+
+    while gap > 0: 
+        for i in range(int(gap), int(tamanhoVetor)): 
+            aux = listaDecolagens[i]
+            j = i
+
+            while int(j) >= int(gap) and listaDecolagens[j - int(gap)].hora > aux.hora:
+                contaSwap = contaSwap + 1
+                listaDecolagens[j] = listaDecolagens [j- int(gap)] #realiza swap
+                j -= int(gap)
+
+            listaDecolagens[j] = aux
+        gap = int(gap / 2)
+    
+    return contaSwap
+
+def shellSortPista(listaDecolagens, tamanhoVetor):
+    gap = int(tamanhoVetor / 2)
+    contaSwap = 0
+
+    while gap > 0: 
+        for i in range(int(gap), int(tamanhoVetor)): 
+            aux = listaDecolagens[i]
+            j = i
+
+            while int(j) >= int(gap) and int(listaDecolagens[j - int(gap)].pista) > int(aux.pista):
+                contaSwap = contaSwap + 1
+                listaDecolagens[j] = listaDecolagens [j- int(gap)] #realiza swap
+                j -= int(gap)
+
+            listaDecolagens[j] = aux
+        gap = int(gap / 2)
+    
+    return contaSwap
+
+def shellSortDiaHorario(listaDecolagens, tamanhoVetor):
+    gap = int(tamanhoVetor / 2)
+    contaSwap = 0
+
+    while gap > 0: 
+        for i in range(int(gap), int(tamanhoVetor)): 
+            aux = listaDecolagens[i]
+            j = i
+
+            while int(j) >= int(gap) and( (listaDecolagens[j - int(gap)].dia) >  aux.dia or ((listaDecolagens[j - int(gap)].dia) ==  aux.dia) and listaDecolagens[j - int(gap)].hora > aux.hora):
+                contaSwap = contaSwap + 1
+                listaDecolagens[j] = listaDecolagens [j- int(gap)] #realiza swap
+                j -= int(gap)
+
+            listaDecolagens[j] = aux
+        gap = int(gap / 2)
+    
+    return contaSwap
+
+
+def shellSortDiaHorarioPista(listaDecolagens, tamanhoVetor):
+    gap = int(tamanhoVetor / 2)
+    contaSwap = 0
+
+    while gap > 0: 
+        for i in range(int(gap), int(tamanhoVetor)): 
+            aux = listaDecolagens[i]
+            j = i
+
+            while int(j) >= int(gap) and( (listaDecolagens[j - int(gap)].pista) >  aux.pista or \
+            listaDecolagens[j - int(gap)].pista ==  aux.pista and listaDecolagens[j - int(gap)].dia > aux.dia or \
+                listaDecolagens[j - int(gap)].pista ==  aux.pista and listaDecolagens[j - int(gap)].dia == aux.dia and \
+                listaDecolagens[j - int(gap)].hora > aux.hora):
+                contaSwap = contaSwap + 1
+                listaDecolagens[j] = listaDecolagens [j- int(gap)] #realiza swap
+                j -= int(gap)
+
+            listaDecolagens[j] = aux
+        gap = int(gap / 2)
+    
+    return contaSwap
+
+
+
