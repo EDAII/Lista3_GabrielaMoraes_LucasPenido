@@ -8,9 +8,10 @@ from quicksortPivotAleatorio import *
 from quicksortPivotComeco import *
 
 def main():
+    f = open("historico.txt", "a")
     sys.setrecursionlimit(1000000) #Permite realizar mais chamadas recursivas do que o normal
     darBoasVindas()
-    input("\n\nAperte QUALQUER tecla para continuar")
+    input("\n\nAperte ENTER para continuar")
     system("clear")
     while True:
         system("clear")
@@ -19,7 +20,12 @@ def main():
         if opcao == 1:
             numeroDecolagens = escolheNumeroDecolagens()
             listaDecolagens = []
+            inicio = timeit.default_timer()
             listaDecolagens = gerarDecolagens(listaDecolagens, numeroDecolagens)
+            fim = timeit.default_timer()
+            tempoGeracaoRegistros = fim - inicio
+            print("Tempo de geração de registros: {:.6f}s".format (tempoGeracaoRegistros))
+            input("\n\nAperte ENTER para continuar\n")
             imprimeListaVoos(numeroDecolagens, listaDecolagens)
             while True:
                 exibirMenuOrdenacao()
@@ -31,7 +37,7 @@ def main():
                     fim = timeit.default_timer()
                     tempoShellSort = fim - inicio
                     print("Tempo de execução do Shell Sort: {:.6f}s".format (tempoShellSort))
-                    input("\n\nAperte QUALQUER tecla para continuar\n")
+                    input("\n\nAperte ENTER para continuar\n")
 
                     inicio = timeit.default_timer()
                     dadosMerge = mergeSortNumeroVoo(listaDecolagens)
@@ -41,7 +47,7 @@ def main():
                     # print("Quantidade de comparações: ", dadosMergeNumeroVoo[0])
                     # print("Quantidade de movimentos até formar o vetor ordenado: ", dadosMergeNumeroVoo[1])
                     print("Tempo de execução do Merge Sort: {:.6f}s".format (tempoMergeSort))
-                    input("\n\nAperte QUALQUER tecla para continuar\n")
+                    input("\n\nAperte ENTER para continuar\n")
 
                     inicio = timeit.default_timer()
                     sorted(listaDecolagens, key=lambda decolagem: decolagem.numeroVoo)
@@ -50,7 +56,7 @@ def main():
                     print("Tim sort realizado! ")
                     # imprimeListaVoos(len(listaDecolagens), listaDecolagens)
                     print("Tempo de execução do Tim Sort: {:.6f}s".format (tempoTimSort))
-                    input("\n\nAperte QUALQUER tecla para continuar\n")
+                    input("\n\nAperte ENTER para continuar\n")
 
                     inicio = timeit.default_timer()
                     quickSortPivotNoFimNumVoo(listaDecolagens, 0, numeroDecolagens-1)
@@ -58,21 +64,21 @@ def main():
                     tempoQuickSortPivoFim = fim - inicio
                     print("Quick Sort realizado! ")
                     print("Tempo de execução do Quick Sort com Pivot no fim: {:.6f}s".format (tempoQuickSortPivoFim))
-                    input("\n\nAperte QUALQUER tecla para continuar\n")
+                    input("\n\nAperte ENTER para continuar\n")
 
                     inicio = timeit.default_timer()
                     quickSortPivotNoComecoNumVoo(listaDecolagens, 0, numeroDecolagens-1)
                     fim = timeit.default_timer()
                     tempoQuickSortPivoComeco = fim - inicio
                     print("Tempo de execução do Quick Sort com Pivot no comeco: {:.6f}s".format (tempoQuickSortPivoComeco))
-                    input("\n\nAperte QUALQUER tecla para continuar\n")
+                    input("\n\nAperte ENTER para continuar\n")
 
                     inicio = timeit.default_timer()
                     quickSortPivotAleatorioNumVoo(listaDecolagens, 0, numeroDecolagens-1)
                     fim = timeit.default_timer()
                     tempoQuickSortPivoAleatorio = fim - inicio
                     print("Tempo de execução do Quick Sort com Pivot aleatorio: {:.6f}s".format (tempoQuickSortPivoAleatorio))
-                    input("\n\nAperte QUALQUER tecla para continuar\n")
+                    input("\n\nAperte ENTER para continuar\n")
                     
                     f = open("historico.txt", "a")
                     f.write("Número do vôo\t" + str(len(listaDecolagens)) + "\t"+ \
@@ -92,7 +98,7 @@ def main():
                     fim = timeit.default_timer()
                     tempoShellSort = fim - inicio
                     print("Tempo de execução: {:.6f}s".format (tempoShellSort))
-                    input("\n\nAperte QUALQUER tecla para continuar\n")
+                    input("\n\nAperte ENTER para continuar\n")
 
                     inicio = timeit.default_timer()
                     dadosMerge = mergeSortDia(listaDecolagens)
@@ -102,7 +108,7 @@ def main():
                     # print("Quantidade de comparações: ", dadosMergeNumeroVoo[0])
                     # print("Quantidade de movimentos até formar o vetor ordenado: ", dadosMergeNumeroVoo[1])
                     print("Tempo de execução do Merge Sort: {:.6f}s".format (tempoMergeSort))
-                    input("\n\nAperte QUALQUER tecla para continuar\n")
+                    input("\n\nAperte ENTER para continuar\n")
 
                     inicio = timeit.default_timer()
                     sorted(listaDecolagens, key=lambda decolagem: decolagem.dia)
@@ -111,7 +117,7 @@ def main():
                     print("Tim sort realizado! ")
                     # imprimeListaVoos(len(listaDecolagens), listaDecolagens)
                     print("Tempo de execução do Tim Sort: {:.6f}s".format (tempoTimSort))
-                    input("\n\nAperte QUALQUER tecla para continuar\n")
+                    input("\n\nAperte ENTER para continuar\n")
 
                     inicio = timeit.default_timer()
                     quickSortPivotNoFimDia(listaDecolagens, 0, numeroDecolagens-1)
@@ -119,21 +125,21 @@ def main():
                     tempoQuickSortPivoFim = fim - inicio
                     print("Quick Sort realizado! ")
                     print("Tempo de execução do Quick Sort com Pivot no fim: {:.6f}s".format (tempoQuickSortPivoFim))
-                    input("\n\nAperte QUALQUER tecla para continuar\n")
+                    input("\n\nAperte ENTER para continuar\n")
 
                     inicio = timeit.default_timer()
                     quickSortPivotNoComecoDia(listaDecolagens, 0, numeroDecolagens-1)
                     fim = timeit.default_timer()
                     tempoQuickSortPivoComeco = fim - inicio
                     print("Tempo de execução do Quick Sort com Pivot no comeco: {:.6f}s".format (tempoQuickSortPivoComeco))
-                    input("\n\nAperte QUALQUER tecla para continuar\n")
+                    input("\n\nAperte ENTER para continuar\n")
 
                     inicio = timeit.default_timer()
                     quickSortPivotAleatorioDia(listaDecolagens, 0, numeroDecolagens-1)
                     fim = timeit.default_timer()
                     tempoQuickSortPivoAleatorio = fim - inicio
                     print("Tempo de execução do Quick Sort com Pivot aleatorio: {:.6f}s".format (tempoQuickSortPivoAleatorio))
-                    input("\n\nAperte QUALQUER tecla para continuar\n")
+                    input("\n\nAperte ENTER para continuar\n")
 
                     f = open("historico.txt", "a")
                     f.write("Data\t\t" + str(len(listaDecolagens)) + "\t"+ \
@@ -153,7 +159,7 @@ def main():
                     fim = timeit.default_timer()
                     tempoShellSort = fim - inicio
                     print("Tempo de execução: {:.6f}s".format (tempoShellSort))
-                    input("\n\nAperte QUALQUER tecla para continuar\n")
+                    input("\n\nAperte ENTER para continuar\n")
 
                     inicio = timeit.default_timer()
                     dadosMerge = mergeSortHorario(listaDecolagens)
@@ -163,7 +169,7 @@ def main():
                     # print("Quantidade de comparações: ", dadosMergeNumeroVoo[0])
                     # print("Quantidade de movimentos até formar o vetor ordenado: ", dadosMergeNumeroVoo[1])
                     print("Tempo de execução do Merge Sort: {:.6f}s".format (tempoMergeSort))
-                    input("\n\nAperte QUALQUER tecla para continuar\n")
+                    input("\n\nAperte ENTER para continuar\n")
 
                     inicio = timeit.default_timer()
                     sorted(listaDecolagens, key=lambda decolagem: decolagem.hora)
@@ -172,7 +178,7 @@ def main():
                     print("Tim sort realizado! ")
                     # imprimeListaVoos(len(listaDecolagens), listaDecolagens)
                     print("Tempo de execução do Tim Sort: {:.6f}s".format (tempoTimSort))
-                    input("\n\nAperte QUALQUER tecla para continuar\n")
+                    input("\n\nAperte ENTER para continuar\n")
 
                     inicio = timeit.default_timer()
                     quickSortPivotNoFimHora(listaDecolagens, 0, numeroDecolagens-1)
@@ -180,21 +186,21 @@ def main():
                     tempoQuickSortPivoFim = fim - inicio
                     print("Quick Sort realizado! ")
                     print("Tempo de execução do Quick Sort com Pivot no fim: {:.6f}s".format (tempoQuickSortPivoFim))
-                    input("\n\nAperte QUALQUER tecla para continuar\n")
+                    input("\n\nAperte ENTER para continuar\n")
 
                     inicio = timeit.default_timer()
                     quickSortPivotNoComecoHora(listaDecolagens, 0, numeroDecolagens-1)
                     fim = timeit.default_timer()
                     tempoQuickSortPivoComeco = fim - inicio
                     print("Tempo de execução do Quick Sort com Pivot no comeco: {:.6f}s".format (tempoQuickSortPivoComeco))
-                    input("\n\nAperte QUALQUER tecla para continuar\n")
+                    input("\n\nAperte ENTER para continuar\n")
 
                     inicio = timeit.default_timer()
                     quickSortPivotAleatorioHora(listaDecolagens, 0, numeroDecolagens-1)
                     fim = timeit.default_timer()
                     tempoQuickSortPivoAleatorio = fim - inicio
                     print("Tempo de execução do Quick Sort com Pivot aleatorio: {:.6f}s".format (tempoQuickSortPivoAleatorio))
-                    input("\n\nAperte QUALQUER tecla para continuar\n")
+                    input("\n\nAperte ENTER para continuar\n")
 
                     f = open("historico.txt", "a")
                     f.write("Horário\t\t" + str(len(listaDecolagens)) + "\t"+ \
@@ -215,7 +221,7 @@ def main():
                     fim = timeit.default_timer()
                     tempoShellSort = fim - inicio
                     print("Tempo de execução: {:.6f}s".format (tempoShellSort))
-                    input("\n\nAperte QUALQUER tecla para continuar\n")
+                    input("\n\nAperte ENTER para continuar\n")
 
                     inicio = timeit.default_timer()
                     dadosMerge = mergeSortPista(listaDecolagens)
@@ -225,7 +231,7 @@ def main():
                     # print("Quantidade de comparações: ", dadosMergeNumeroVoo[0])
                     # print("Quantidade de movimentos até formar o vetor ordenado: ", dadosMergeNumeroVoo[1])
                     print("Tempo de execução do Merge Sort: {:.6f}s".format (tempoMergeSort))
-                    input("\n\nAperte QUALQUER tecla para continuar\n")
+                    input("\n\nAperte ENTER para continuar\n")
 
                     inicio = timeit.default_timer()
                     sorted(listaDecolagens, key=lambda decolagem: decolagem.pista)
@@ -234,7 +240,7 @@ def main():
                     print("Tim sort realizado! ")
                     # imprimeListaVoos(len(listaDecolagens), listaDecolagens)
                     print("Tempo de execução do Tim Sort: {:.6f}s".format (tempoTimSort))
-                    input("\n\nAperte QUALQUER tecla para continuar\n")
+                    input("\n\nAperte ENTER para continuar\n")
 
                     inicio = timeit.default_timer()
                     quickSortPivotNoFimPista(listaDecolagens, 0, numeroDecolagens-1)
@@ -242,21 +248,21 @@ def main():
                     tempoQuickSortPivoFim = fim - inicio
                     print("Quick Sort realizado! ")
                     print("Tempo de execução do Quick Sort com Pivot no fim: {:.6f}s".format (tempoQuickSortPivoFim))
-                    input("\n\nAperte QUALQUER tecla para continuar\n")
+                    input("\n\nAperte ENTER para continuar\n")
 
                     inicio = timeit.default_timer()
                     quickSortPivotNoComecoPista(listaDecolagens, 0, numeroDecolagens-1)
                     fim = timeit.default_timer()
                     tempoQuickSortPivoComeco = fim - inicio
                     print("Tempo de execução do Quick Sort com Pivot no comeco: {:.6f}s".format (tempoQuickSortPivoComeco))
-                    input("\n\nAperte QUALQUER tecla para continuar\n")
+                    input("\n\nAperte ENTER para continuar\n")
 
                     inicio = timeit.default_timer()
                     quickSortPivotAleatorioPista(listaDecolagens, 0, numeroDecolagens-1)
                     fim = timeit.default_timer()
                     tempoQuickSortPivoAleatorio = fim - inicio
                     print("Tempo de execução do Quick Sort com Pivot aleatorio: {:.6f}s".format (tempoQuickSortPivoAleatorio))
-                    input("\n\nAperte QUALQUER tecla para continuar\n")
+                    input("\n\nAperte ENTER para continuar\n")
 
                     f = open("historico.txt", "a")
                     f.write("Pista\t\t" + str(len(listaDecolagens)) + "\t"+ \
@@ -277,7 +283,7 @@ def main():
                     fim = timeit.default_timer()
                     tempoShellSort = fim - inicio
                     print("Tempo de execução: {:.6f}s".format (tempoShellSort))
-                    input("\n\nAperte QUALQUER tecla para continuar\n")
+                    input("\n\nAperte ENTER para continuar\n")
 
                     inicio = timeit.default_timer()
                     dadosMerge = mergeSortDiaHorario(listaDecolagens)
@@ -287,7 +293,7 @@ def main():
                     # print("Quantidade de comparações: ", dadosMergeNumeroVoo[0])
                     # print("Quantidade de movimentos até formar o vetor ordenado: ", dadosMergeNumeroVoo[1])
                     print("Tempo de execução do Merge Sort: {:.6f}s".format (tempoMergeSort))
-                    input("\n\nAperte QUALQUER tecla para continuar\n")
+                    input("\n\nAperte ENTER para continuar\n")
 
                     inicio = timeit.default_timer()
                     quickSortPivotNoFimDiaHora(listaDecolagens, 0, numeroDecolagens-1)
@@ -295,21 +301,21 @@ def main():
                     tempoQuickSortPivoFim = fim - inicio
                     print("Quick Sort realizado! ")
                     print("Tempo de execução do Quick Sort com Pivot no fim: {:.6f}s".format (tempoQuickSortPivoFim))
-                    input("\n\nAperte QUALQUER tecla para continuar\n")
+                    input("\n\nAperte ENTER para continuar\n")
 
                     inicio = timeit.default_timer()
                     quickSortPivotNoComecoDiaHora(listaDecolagens, 0, numeroDecolagens-1)
                     fim = timeit.default_timer()
                     tempoQuickSortPivoComeco = fim - inicio
                     print("Tempo de execução do Quick Sort com Pivot no comeco: {:.6f}s".format (tempoQuickSortPivoComeco))
-                    input("\n\nAperte QUALQUER tecla para continuar\n")
+                    input("\n\nAperte ENTER para continuar\n")
 
                     inicio = timeit.default_timer()
                     quickSortPivotAleatorioDiaHora(listaDecolagens, 0, numeroDecolagens-1)
                     fim = timeit.default_timer()
                     tempoQuickSortPivoAleatorio = fim - inicio
                     print("Tempo de execução do Quick Sort com Pivot aleatorio: {:.6f}s".format (tempoQuickSortPivoAleatorio))
-                    input("\n\nAperte QUALQUER tecla para continuar\n")
+                    input("\n\nAperte ENTER para continuar\n")
 
                     f = open("historico.txt", "a")
                     f.write("Dia, Horário\t" + str(len(listaDecolagens)) + "\t"+ \
@@ -330,7 +336,7 @@ def main():
                     fim = timeit.default_timer()
                     tempoShellSort = fim - inicio
                     print("Tempo de execução: {:.6f}s".format (tempoShellSort))
-                    input("\n\nAperte QUALQUER tecla para continuar\n")
+                    input("\n\nAperte ENTER para continuar\n")
 
                     inicio = timeit.default_timer()
                     dadosMerge = mergeSortDiaHorarioPista(listaDecolagens)
@@ -340,7 +346,7 @@ def main():
                     # print("Quantidade de comparações: ", dadosMergeNumeroVoo[0])
                     # print("Quantidade de movimentos até formar o vetor ordenado: ", dadosMergeNumeroVoo[1])
                     print("Tempo de execução do Merge Sort: {:.6f}s".format (tempoMergeSort))
-                    input("\n\nAperte QUALQUER tecla para continuar\n")
+                    input("\n\nAperte ENTER para continuar\n")
 
                     inicio = timeit.default_timer()
                     quickSortPivotNoFimDiaHoraPista(listaDecolagens, 0, numeroDecolagens-1)
@@ -348,21 +354,21 @@ def main():
                     tempoQuickSortPivoFim = fim - inicio
                     print("Quick Sort realizado! ")
                     print("Tempo de execução do Quick Sort com Pivot no fim: {:.6f}s".format (tempoQuickSortPivoFim))
-                    input("\n\nAperte QUALQUER tecla para continuar\n")
+                    input("\n\nAperte ENTER para continuar\n")
 
                     inicio = timeit.default_timer()
                     quickSortPivotNoComecoDiaHoraPista(listaDecolagens, 0, numeroDecolagens-1)
                     fim = timeit.default_timer()
                     tempoQuickSortPivoComeco = fim - inicio
                     print("Tempo de execução do Quick Sort com Pivot no comeco: {:.6f}s".format (tempoQuickSortPivoComeco))
-                    input("\n\nAperte QUALQUER tecla para continuar\n")
+                    input("\n\nAperte ENTER para continuar\n")
 
                     inicio = timeit.default_timer()
                     quickSortPivotAleatorioDiaHoraPista(listaDecolagens, 0, numeroDecolagens-1)
                     fim = timeit.default_timer()
                     tempoQuickSortPivoAleatorio = fim - inicio
                     print("Tempo de execução do Quick Sort com Pivot aleatorio: {:.6f}s".format (tempoQuickSortPivoAleatorio))
-                    input("\n\nAperte QUALQUER tecla para continuar\n")
+                    input("\n\nAperte ENTER para continuar\n")
 
                     f = open("historico.txt", "a")
                     f.write("Dia|Hora|Pista\t" + str(len(listaDecolagens)) + "\t"+ \
@@ -383,7 +389,7 @@ def main():
                     fim = timeit.default_timer()
                     tempoShellSort = fim - inicio
                     print("Tempo de execução: {:.6f}s".format (tempoShellSort))
-                    input("\n\nAperte QUALQUER tecla para continuar\n")
+                    input("\n\nAperte ENTER para continuar\n")
 
                     inicio = timeit.default_timer()
                     dadosMerge = mergeSortPistaDiaHorario(listaDecolagens)
@@ -393,7 +399,7 @@ def main():
                     # print("Quantidade de comparações: ", dadosMergeNumeroVoo[0])
                     # print("Quantidade de movimentos até formar o vetor ordenado: ", dadosMergeNumeroVoo[1])
                     print("Tempo de execução do Merge Sort: {:.6f}s".format (tempoMergeSort))
-                    input("\n\nAperte QUALQUER tecla para continuar\n")
+                    input("\n\nAperte ENTER para continuar\n")
 
                     inicio = timeit.default_timer()
                     quickSortPivotNoFimPistaDiaHora(listaDecolagens, 0, numeroDecolagens-1)
@@ -401,21 +407,21 @@ def main():
                     tempoQuickSortPivoFim = fim - inicio
                     print("Quick Sort realizado! ")
                     print("Tempo de execução do Quick Sort com Pivot no fim: {:.6f}s".format (tempoQuickSortPivoFim))
-                    input("\n\nAperte QUALQUER tecla para continuar\n")
+                    input("\n\nAperte ENTER para continuar\n")
 
                     inicio = timeit.default_timer()
                     quickSortPivotNoComecoPistaDiaHora(listaDecolagens, 0, numeroDecolagens-1)
                     fim = timeit.default_timer()
                     tempoQuickSortPivoComeco = fim - inicio
                     print("Tempo de execução do Quick Sort com Pivot no comeco: {:.6f}s".format (tempoQuickSortPivoComeco))
-                    input("\n\nAperte QUALQUER tecla para continuar\n")
+                    input("\n\nAperte ENTER para continuar\n")
 
                     inicio = timeit.default_timer()
                     quickSortPivotAleatorioPistaDiaHora(listaDecolagens, 0, numeroDecolagens-1)
                     fim = timeit.default_timer()
                     tempoQuickSortPivoAleatorio = fim - inicio
                     print("Tempo de execução do Quick Sort com Pivot aleatorio: {:.6f}s".format (tempoQuickSortPivoAleatorio))
-                    input("\n\nAperte QUALQUER tecla para continuar\n")
+                    input("\n\nAperte ENTER para continuar\n")
 
                     f = open("historico.txt", "a")
                     f.write("Pista|Dia|Hora\t" + str(len(listaDecolagens)) + "\t"+ \
@@ -434,7 +440,7 @@ def main():
                     print("Critério\tTamanho\tTempo Shell\tTempo Merge\tTempo TimSort\tTempo Quick Sort Pivo no Começo\tTempo Quick Sort Pivo no Fim\tTempo Quick Sort Pivo Aleatorio")
                     f = open("historico.txt","r")
                     print(f.read())
-                    input("\n\nAperte QUALQUER tecla para continuar\n")
+                    input("\n\nAperte ENTER para continuar\n")
                     f.close()
                     break
 
