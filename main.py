@@ -1,4 +1,5 @@
 import os
+import sys
 # import time
 import timeit
 from funcoes import *
@@ -7,6 +8,7 @@ from quicksortPivotAleatorio import *
 from quicksortPivotComeco import *
 
 def main():
+    sys.setrecursionlimit(1000000) #Permite realizar mais chamadas recursivas do que o normal
     darBoasVindas()
     input("\n\nAperte QUALQUER tecla para continuar")
     system("clear")
